@@ -33,7 +33,7 @@ class DebuggerPlugin implements IPlugin, ICheck {
 
 	public function checkDependencies() {
 		return array(
-			"freetemplateplugin_installed" => $this->servicelocator->get('freetemplateplugin') ? "Ok" : "moduledpageplugin not installed"
+			"freetemplateplugin_installed" => $this->servicelocator->get('freetemplateplugin') ? "Ok" : "freetemplatepageplugin not installed"
 		);
 	}
 
