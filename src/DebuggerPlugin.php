@@ -1,16 +1,17 @@
-<?php
+<?php declare(strict_types=1);
 
 namespace Debugger;
 
 use Api\IPlugin;
 use Api\ICheck;
+use Base3\ServiceLocator;
 
 class DebuggerPlugin implements IPlugin, ICheck {
 
 	private $servicelocator;
 
 	public function __construct() {
-		$this->servicelocator = \Base3\ServiceLocator::getInstance();
+		$this->servicelocator = ServiceLocator::getInstance();
 	}
 
 	// Implementation of IBase
@@ -24,9 +25,8 @@ class DebuggerPlugin implements IPlugin, ICheck {
 	public function init() {
 
 		$this->servicelocator
-			->set($this->getName(), $this, true)
-			;
 
+			->set($this->getName(), $this, ServiceLocator::SHARED);
 	}
 
 	// Implementation of ICheck
